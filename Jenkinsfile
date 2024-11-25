@@ -15,7 +15,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t $IMAGE_NAME .'
+                    sh '/usr/local/bin/docker build -t $IMAGE_NAME .'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 8000:8000 $IMAGE_NAME'
+                    sh '/usr/local/bin/docker run -d -p 8000:8000 $IMAGE_NAME'
                 }
             }
         }
